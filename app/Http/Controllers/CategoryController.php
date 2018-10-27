@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories=\App\Category::all();
-        return view('index',compact('categories'));
+        $categories = Category::paginate(10);
+        return view('bussiness.index',compact('categories'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('bussiness.create');
     }
 
     /**
@@ -37,21 +37,17 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 		$this->validate($request, [
-		'name' => 'required',
-		'description' => 'required',
+    		'name' => 'required',
+    		'description' => 'required',
 		]);
 		
-		/*Category:create([
-		'name' => $request->get('name'),
-		'description' => $request->get('description')
-		]);*/
 		
-        $category= new \App\Category;
-        $category->name=$request->get('name');
-        $category->description=$request->get('description');
-        $category->save();
+        $bussiness = new Bussiness();
+        $bussiness->name = $request->get('name');
+        $bussiness->description = $request->get('description');
+        $bussiness->save();
         
-        return redirect('categories')->with('success', 'Information has been added');
+        return redirect('bussiness')->with('success', 'Information has been added!');
     }
 
     /**
@@ -73,8 +69,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = \App\Category::find($id);
-        return view('edit',compact('category','id'));
+        $category = Category::find($id);
+        return view('category.edit',compact('category','id'));
     }
 
     /**
@@ -86,11 +82,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category= \App\Category::find($id);
-        $category->name=$request->get('name');
-        $category->description=$request->get('description');
+        $category= Category::find($id);
+        $category->name = $request->get('name');
+        $category->description = $request->get('description');
         $category->save();
-        return redirect('categories');
+        return redirect('category');
     }
 
     /**
@@ -101,8 +97,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = \App\Category::find($id);
+        $category = Category::find($id);
         $category->delete();
-        return redirect('categories')->with('success','Information has been  deleted');
+        return redirect('category')->with('success','Information has been  deleted');
     }
 }

@@ -15,11 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('categories', 'CategoryController@create');
-Route::post('categories', 'CategoryController@store');
-
-Route::resource('categories','CategoryController');
-
 Auth::routes();
+
+Route::post('search','BussinessController@search')->name('bussiness.list');
+Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function(){
+	Route::resource('bussiness','BussinessController');
+	Route::get('state/{id}/cities','BussinessController@cities')->name('cities.list');
+});
+Route::get('bussiness/about','BussinessController@about')->name('about');
 
 Route::get('/home', 'HomeController@index')->name('home');
