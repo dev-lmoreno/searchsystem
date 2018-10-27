@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Searchsystem</title>
+        <title>{{$bussiness->title}}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
@@ -23,7 +23,7 @@
             }
 
             .full-height {
-                height: 300vh;
+                height: 100vh;
             }
 
             .flex-center {
@@ -66,43 +66,20 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref">
+        <div class="flex-center position-ref full-height">
 
             <div class="content">
                 <div class="title m-b-md">
-                    Searchsystem
-                </div>
-
-                <form class="form-inline" method="post" action="{{route('bussiness.list')}}">  
-                    @csrf
-                    <div class="row">
-                        <input type="text" class="form-control" name="search" id="search" placeholder="Search..." style="width:500px;">&nbsp;
-                        <button type="submit" class="btn btn-primary mb-2"><i class="fa fa-search"></i></button>
-                    </div>
-                </form>
-                @if(isset($result)) 
-                <p>Results for "{{$result}}"</p>
-                @endif
-
-                @if(isset($bussinesses))
-                <div class="card">
-                    @foreach($bussinesses as $bussiness)
-                    <!-- FOREACH BUSINESS-->
-                        <div class="card-body">
-                            <h5 class="float-left">Title: </h5>
-                            <h5 class="card-title float-left">{{$bussiness->title}}</h5>
+                    <div class="card">
+                        <div class="card-body" style="width: 800px;">
+                            <h1 class="card-title">Title: {{$bussiness->title}}</h1>
+                            <h3 class="card-subtitled">Description: {{$bussiness->description}}</h3>
+                            <h4 class="card-text">Phone: {{$bussiness->phone}}</h4>
+                            <h4 class="card-text">Address: {{$bussiness->address}}</h4>
+                            <h4 class="card-text">Zipcode: {{$bussiness->zipcode}} </h4>
                         </div>
-                        <div class="card-body">
-                            <h5 class="float-left">Categoria: </h5>
-                             @foreach($bussiness->categories as $category)
-                                <!-- FOREACH CATEGORIES -->
-                                <h5 class="card-title float-left">{{$category->name}}</h5>
-                             @endforeach
-                             <br><br><a href="{{route('about')}}?bussiness_id={{$bussiness->id}}" class="float-right">About</a>
-                        </div>                    
-                    @endforeach
-                <div class="card">
-                @endif
+                    </div>                                                  
+                </div>
             </div>
         </div>
     </body>

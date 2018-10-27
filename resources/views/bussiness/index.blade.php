@@ -18,9 +18,12 @@
                     @endif
                     @foreach($bussinesses as $bussiness)
                     	<div>
-                    		<p>{{$bussiness->name}}</p>
-                    		<small>{{$bussiness->description}}</small>
-                    	</div>
+                        <div class="card" style="width: 690px;">
+                          <div class="card-body">
+                            <h5 class="card-title">{{$bussiness->title}}</h5>
+                            <p class="card-text">{{$bussiness->description}}</p>
+                          </div>
+                        </div>
                     @endforeach
 
                     {{$bussinesses->links()}}

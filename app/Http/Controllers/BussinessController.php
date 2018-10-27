@@ -140,13 +140,14 @@ class BussinessController extends Controller
     }
 
     public function about(Request $request){
+        $categories = Category::where('name', 'like', '%'.$request->search.'%' )->get()->pluck('id')->toArray();
         $bussiness = Bussiness::findOrFail($request->bussiness_id);
-        dd($bussiness);
+        return view('about',compact('bussiness'));
     }
 
     public function search(Request $request){
         if (!trim($request->search)) {
-            dd('error');
+            return view('welcome',compact('bussinesses','result'));
         }
         $result = $request->search;
         $categories = Category::where('name', 'like', '%'.$request->search.'%' )->get()->pluck('id')->toArray();

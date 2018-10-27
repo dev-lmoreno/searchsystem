@@ -23,7 +23,7 @@ class CreateBussinessTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('zipcode');
-            $table->string('description');
+            $table->string('description', '500');
 
 
             $table->integer('status')->default(1);

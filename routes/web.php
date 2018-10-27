@@ -16,12 +16,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('bussiness/about','BussinessController@about')->name('about');
 
-Route::post('search','BussinessController@search')->name('bussiness.list');
-Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function(){
 	Route::resource('bussiness','BussinessController');
 	Route::get('state/{id}/cities','BussinessController@cities')->name('cities.list');
 });
-Route::get('bussiness/about','BussinessController@about')->name('about');
+Route::post('search','BussinessController@search')->name('bussiness.list');
 
 Route::get('/home', 'HomeController@index')->name('home');
