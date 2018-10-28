@@ -77,6 +77,9 @@
                             <h4 class="card-text"><strong>Phone: </strong>{{$bussiness->phone}}</h4>
                             <h4 class="card-text"><strong>Address: </strong>{{$bussiness->address}}</h4>
                             <h4 class="card-text"><strong>Zipcode: </strong>{{$bussiness->zipcode}}</h4>
+                            <!--<h4 class="card-text"><strong>Zipcode: </strong>{{$bussiness->city}}</h4>
+                            <h4 class="card-text"><strong>Zipcode: </strong>{{$bussiness->status}}</h4>
+                            <h4 class="card-text"><strong>Zipcode: </strong>{{$bussiness->categories}}</h4>-->
                         </div>
                     </div>                                                  
                 </div>
