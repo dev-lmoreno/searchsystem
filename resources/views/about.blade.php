@@ -72,11 +72,11 @@
                 <div class="title m-b-md">
                     <div class="card">
                         <div class="card-body" style="width: 800px;">
-                            <h1 class="card-title">Title: {{$bussiness->title}}</h1>
-                            <h3 class="card-subtitled">Description: {{$bussiness->description}}</h3>
-                            <h4 class="card-text">Phone: {{$bussiness->phone}}</h4>
-                            <h4 class="card-text">Address: {{$bussiness->address}}</h4>
-                            <h4 class="card-text">Zipcode: {{$bussiness->zipcode}} </h4>
+                            <h1 class="card-title"><strong>Title: </strong>{{$bussiness->title}}</h1>
+                            <h3 class="card-subtitled"><strong>Description: </strong>{{$bussiness->description}}</h3>
+                            <h4 class="card-text"><strong>Phone: </strong>{{$bussiness->phone}}</h4>
+                            <h4 class="card-text"><strong>Address: </strong>{{$bussiness->address}}</h4>
+                            <h4 class="card-text"><strong>Zipcode: </strong>{{$bussiness->zipcode}}</h4>
                         </div>
                     </div>                                                  
                 </div>

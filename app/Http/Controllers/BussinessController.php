@@ -91,8 +91,8 @@ class BussinessController extends Controller
      */
     public function edit($id)
     {
-        $category = Bussiness::find($id);
-        return view('category.edit',compact('category','id'));
+        //$category = Bussiness::find($id);
+        //return view('category.edit',compact('category','id'));
     }
 
     /**
@@ -104,11 +104,11 @@ class BussinessController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $bussiness= Bussiness::find($id);
+        /*$bussiness= Bussiness::find($id);
         $bussiness->name = $request->get('name');
         $bussiness->description = $request->get('description');
         $bussiness->save();
-        return redirect('bussiness');
+        return redirect('bussiness');*/
     }
 
     /**
@@ -140,7 +140,8 @@ class BussinessController extends Controller
     }
 
     public function about(Request $request){
-        $categories = Category::where('name', 'like', '%'.$request->search.'%' )->get()->pluck('id')->toArray();
+        //$city = City::where('bussinesses.city_id')->join('city', 'city.id', '=', 'bussinesses.id')->get();
+        //dd($city);
         $bussiness = Bussiness::findOrFail($request->bussiness_id);
         return view('about',compact('bussiness'));
     }

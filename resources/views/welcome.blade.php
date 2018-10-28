@@ -89,14 +89,14 @@
                     @foreach($bussinesses as $bussiness)
                     <!-- FOREACH BUSINESS-->
                         <div class="card-body">
-                            <h5 class="float-left">Title: </h5>
+                            <h5 class="float-left"><strong>Title: <br></strong></h5>
                             <h5 class="card-title float-left">{{$bussiness->title}}</h5>
                         </div>
                         <div class="card-body">
-                            <h5 class="float-left">Categoria: </h5>
+                            <h5 class="float-left"><strong>Categoria: </strong><br></h5>
                              @foreach($bussiness->categories as $category)
                                 <!-- FOREACH CATEGORIES -->
-                                <h5 class="card-title float-left">{{$category->name}}</h5>
+                                <br><br><h5 class="card-title float-left">{{$category->name}}</h5>
                              @endforeach
                              <br><br><a href="{{route('about')}}?bussiness_id={{$bussiness->id}}" class="float-right">About</a>
                         </div>                    

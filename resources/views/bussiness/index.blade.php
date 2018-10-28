@@ -21,7 +21,7 @@
                         <div class="card" style="width: 690px;">
                           <div class="card-body">
                             <h5 class="card-title">{{$bussiness->title}}</h5>
-                            <p class="card-text">{{$bussiness->description}}</p>
+                            <p class="card-text">{{$bussiness->description}}</p><br>
                           </div>
                         </div>
                     @endforeach
