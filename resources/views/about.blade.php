@@ -71,15 +71,22 @@
             <div class="content">
                 <div class="title m-b-md">
                     <div class="card">
-                        <div class="card-body" style="width: 800px;">
-                            <h1 class="card-title"><strong>Title: </strong>{{$bussiness->title}}</h1>
-                            <h3 class="card-subtitled"><strong>Description: </strong>{{$bussiness->description}}</h3>
-                            <h4 class="card-text"><strong>Phone: </strong>{{$bussiness->phone}}</h4>
-                            <h4 class="card-text"><strong>Address: </strong>{{$bussiness->address}}</h4>
-                            <h4 class="card-text"><strong>Zipcode: </strong>{{$bussiness->zipcode}}</h4>
-                            <!--<h4 class="card-text"><strong>Zipcode: </strong>{{$bussiness->city}}</h4>
-                            <h4 class="card-text"><strong>Zipcode: </strong>{{$bussiness->status}}</h4>
-                            <h4 class="card-text"><strong>Zipcode: </strong>{{$bussiness->categories}}</h4>-->
+                        <div class="card-body" style="width: 800px; ">
+							<div style="text-align: left;">
+								<h1 class="card-title"><strong>Title: </strong>{{$bussiness->title}}</h1>
+								<h3 class="card-subtitled"><strong>Description: </strong>{{$bussiness->description}}</h3>
+								<h4 class="card-text"><strong>Phone: </strong>{{$bussiness->phone}}</h4>
+								<h4 class="card-text"><strong>Address: </strong>{{$bussiness->address}}</h4>
+								<h4 class="card-text"><strong>Zipcode: </strong>{{$bussiness->zipcode}}</h4>
+								<h4 class="card-text"><strong>City: </strong>{{$bussiness->get_city->name}}</h4>
+								<h4 class="card-text"><strong>State: </strong>{{$bussiness->get_city->get_state->name}}</h4>
+								<h4 class="card-text"><strong>Categories: </strong>
+									@foreach($bussiness->categories as $category)
+									<!-- FOREACH CATEGORIES -->
+										<br>{{$category->name}}
+									@endforeach
+								</h4>
+							</div>
                         </div>
                     </div>                                                  
                 </div>
